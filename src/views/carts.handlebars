@@ -1,0 +1,83 @@
+{{!--
+<h1 class="text-center my-4">Carrito de Compras</h1>
+
+<div class="container">
+    {{#each productos}}
+    <div class="row mb-3 p-3 border rounded shadow-sm bg-light align-items-center">
+        <div class="col-md-8">
+            <h5 class="mb-1 text-dark">Producto: <span class="fw-bold">{{this.product.title}}</span></h5>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <p class="mb-0 text-muted">Cantidad: <span class="fw-bold">{{this.quantity}}</span></p>
+        </div>
+    </div>
+    {{/each}}
+</div> --}}
+
+{{!-- <div class="container mt-5">
+    <h2>Carrito de Compras</h2>
+    {{#if products.length}}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+            <tr>
+                <td>{{this.product.name}}</td>
+                <td>
+                    <form action="/cart/{{../_id}}/product/{{this.product._id}}?_method=PUT" method="POST">
+                        <input type="number" name="quantity" value="{{this.quantity}}" min="1"
+                            class="form-control d-inline-block" style="width: 60px;">
+                        <button type="submit" class="btn btn-primary btn-sm">Actualizar</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/cart/{{../_id}}/product/{{this.product._id}}?_method=DELETE" method="POST"
+                        style="display: inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <form action="/cart/{{_id}}?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-warning">Vaciar Carrito</button>
+    </form>
+    {{else}}
+    <p>No hay productos en el carrito.</p>
+    {{/if}}
+
+    <a href="/products" class="btn btn-secondary mt-3">Volver a Productos</a>
+</div>
+
+--}}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Carrito de Compras</h1>
+
+    {{#if productos.length}}
+    <div class="row">
+        {{#each productos}}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{product.imageUrl}}" class="card-img-top" alt="{{product.title}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.title}}</h5>
+                    <p class="card-text">Precio: ${{product.price}}</p>
+                    <p class="card-text">Cantidad: {{quantity}}</p>
+                    <button class="btn btn-danger btn-sm" onclick="removeFromCart('{{this._id}}')">Eliminar</button>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <p>No hay productos en el carrito.</p>
+    {{/if}}
+</div>

@@ -1,0 +1,84 @@
+{{!-- <!-- Div superior con el botón de Iniciar Sesión -->
+<div class="top-bar">
+    <div class="container-fluid d-flex justify-content-end align-items-center">
+        <a href="/login" class="btn login-btn"><img src="./assets/box-arrow-in-right.svg" alt="">Iniciar Sesión</a>
+        <a href="/register" class="btn register-btn ms-2"><img src="./assets/person-fill-add.svg" alt="">Registrarse</a>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="./assets/logo-food-house.jpg" alt="Logo" width="120" height="70"
+                class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/products">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pricing">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav> --}}
+
+<!-- Div superior con el botón de Iniciar Sesión o mostrar el nombre del usuario -->
+<div class="top-bar">
+    <div class="container-fluid d-flex justify-content-end align-items-center">
+        {{#if user}}
+        <span class="me-2 user-online">
+            <img src="./assets/person-circle.svg" alt="">{{user.usuario}}<!-- Mostrar el nombre del usuario -->
+            <span class="circulo-verde"></span>
+        </span> 
+        <!-- Botón de cerrar sesión -->
+        <form action="/api/sessions/logout" method="POST">
+            <button type="submit" class="btn btn-danger logout-btn"><img src="./assets/logout.svg" alt="">Cerrar Sesión</button>
+        </form>
+        {{else}}
+        <a href="/login" class="btn login-btn"><img src="./assets/box-arrow-in-right.svg" alt="">Iniciar Sesión</a>
+        <a href="/register" class="btn register-btn ms-2"><img src="./assets/person-fill-add.svg" alt="">Registrarse</a>
+        {{/if}}
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="./assets/logo-food-house.jpg" alt="Logo" width="120" height="70"
+                class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/products">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/carts/{{user.cart}}">carrito</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

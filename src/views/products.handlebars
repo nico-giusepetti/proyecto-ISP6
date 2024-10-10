@@ -1,0 +1,58 @@
+<h1 class="text-center my-4">Productos Disponibles</h1>
+
+<div class="container">
+    <div class="product-grid">
+        {{#each productos}}
+        <div class="product-card">
+            <div class="product-image">
+                <img src="{{this.image}}" alt="{{this.title}}">
+            </div>
+            <div class="product-card-body">
+                <h5 class="product-title">{{this.title}}</h5>
+                <p class="product-description">{{this.description}}</p>
+                <p class="product-price">$ {{this.price}}</p>
+                <a href="#" class="product-button" onclick=addToCart('{{this._id}}')>Solicitar</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<div class="d-flex justify-content-center mt-4">
+    <div>
+        {{#if hasPrevPage}}
+        <a href="/products?page={{prevPage}}" class="btn btn-outline-primary mx-2">Anterior</a>
+        {{/if}}
+        {{#if hasNextPage}}
+        <a href="/products?page={{nextPage}}" class="btn btn-outline-primary mx-2">Siguiente</a>
+        {{/if}}
+    </div>
+</div>
+
+<p class="text-center mt-4 text-secondary">Página {{currentPage}} de {{totalPages}}</p>
+
+
+
+
+<script>
+    function addToCart(productId) {
+        // ID del carrito (este ejemplo asume que el carrito ya existe y tienes su ID)
+        const cartId = "{{user.cart}}"; // Reemplaza con el ID del carrito real
+        
+        fetch(`/api/carts/${cartId}/product/${productId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ quantity: 1 }) // Ajusta la cantidad según tus necesidades
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Producto agregado al carrito:", data);
+            alert("Producto agregado al carrito");
+        })
+        .catch(error => {
+            console.error("Error al agregar el producto:", error);
+        });
+    }
+</script>

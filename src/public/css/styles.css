@@ -1,0 +1,356 @@
+
+body{
+    background-color: #fff;
+}
+
+
+
+
+/* Estilo para el div superior */
+.top-bar {
+    background-color: #EB0104; /* Fondo rojo */
+    padding: 10px 20px; /* Espaciado alrededor del contenido */
+    text-align: right; /* Alinear el contenido a la derecha */
+    border-bottom: 1px #666;
+}
+
+/* Estilo para el botón de Iniciar Sesión */
+.login-btn , .logout-btn{
+    color: #fff; /* Texto blanco */
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid #fff; /* Borde blanco */
+    padding: 5px 15px; /* Espaciado interno del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+
+.user-online{
+    color: white; /* Texto blanco */
+    padding: 5px 15px; /* Espaciado interno del botón */
+    font-size: 18px; /* Tamaño de fuente */
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+    padding-right: 30px;
+
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+.user-online img{
+    padding-right: 8px;
+    padding-bottom: 1px;
+    scale: 1.3;
+}
+
+.circulo-verde {
+    width: 10px; /* Tamaño del círculo */
+    height: 10px;
+    background-color: rgb(55, 236, 55); /* Color del indicador */
+    border-radius: 50%; /* Hacerlo circular */
+    position: absolute;
+    top: 14px;
+    right: 15px; /* Ajustar posición respecto al nombre del usuario */
+}
+
+/* Cambiar fondo y color al pasar el mouse sobre el botón */
+.login-btn:hover, .logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco transparente al hacer hover */
+    color: #fff; /* Texto sigue siendo blanco */
+}
+
+/* Botón de Registrarse en la barra superior */
+.register-btn {
+    color: #fff; /* Texto blanco */
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid #fff; /* Borde blanco */
+    padding: 5px 15px; /* Espaciado interno del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+
+/* Hover del botón de Registrarse */
+.register-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco transparente al hacer hover */
+    color: #fff; /* Texto sigue siendo blanco */
+}
+
+.login-btn img, .register-btn img, .logout-btn img{
+    padding-right: 5px;
+    padding-bottom: 3px;
+    color: white;
+}
+
+
+/* Estilo general para el navbar */
+.navbar {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra para darle profundidad */
+    padding: 15px 20px;
+    /* Más espacio interno para que se vea más espacioso */
+    transition: background-color 0.3s ease;
+    /* Transición suave para el color de fondo */
+}
+
+/* Cambia el color de fondo del navbar al hacer scroll */
+.navbar.scrolled {
+    background-color: #333;
+    /* Fondo más oscuro al hacer scroll */
+}
+
+/* Estilo para el logo */
+.navbar-brand img {
+    transition: transform 0.3s ease;
+    /* Transición suave para el hover */
+}
+
+/* Agrandar el logo al pasar el mouse */
+.navbar-brand img:hover {
+    transform: scale(1.1);
+    /* Escalar un poco el logo */
+}
+
+/* Estilos para los enlaces */
+.nav-link {
+    color: black;
+    /* Color claro para los enlaces */
+    font-size: 18px;
+    /* Tamaño de fuente más grande */
+    font-weight: 500;
+    /* Fuente seminegrita */
+    padding: 8px 15px;
+    /* Más espacio alrededor de los enlaces */
+    transition: color 0.3s ease, background-color 0.3s ease;
+    /* Transición suave en hover */
+}
+
+
+/* Estilos para el hover de los enlaces */
+.nav-link:hover {
+    /* background-color: #eb0105; */
+    color: #eb0105;
+}
+
+/* Estilo para el botón del menú hamburguesa */
+.navbar-toggler {
+    border-color: #f8f9fa;
+    /* Color blanco para el borde del botón */
+}
+
+/* Color para el ícono del menú hamburguesa */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler {
+    border-color: black; /* Cambia el color del borde del botón de hamburguesa */
+}
+
+/* Centrar los elementos de la navbar en dispositivos móviles */
+.navbar-nav {
+    text-align: center;
+}
+
+/* Espaciado entre los elementos en dispositivos grandes */
+.navbar-nav .nav-item {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+
+
+
+
+/* ---VIEW PRODUCTS--- */
+/* Contenedor de la cuadrícula */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilo de la cuadrícula de productos */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptable y fluido */
+    gap: 30px; /* Mayor separación entre tarjetas */
+}
+
+/* Tarjeta de producto */
+.product-card {
+    background-color: white; /* Color suave para resaltar el contenido */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efecto hover para las tarjetas */
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen del producto */
+.product-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+/* Cuerpo de la tarjeta */
+.product-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Título del producto */
+.product-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px; /* Mejora la legibilidad */
+    text-transform: capitalize;
+}
+
+/* Descripción del producto */
+.product-description {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    flex-grow: 1; /* Ajusta el espacio restante para la descripción */
+}
+
+/* Precio del producto */
+.product-price {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+/* Botón de solicitud */
+.product-button {
+    display: inline-block;
+    padding: 12px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    background-color: #EB0104; /* Color principal para el botón */
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 30px; /* Bordes más suaves */
+    text-decoration: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+}
+
+/* Efecto hover para el botón */
+.product-button:hover {
+    background-color: #fff;
+    color: #EB0104;
+    border-color: #EB0104; /* Bordes coloreados al hover */
+    transform: scale(1.05); /* Pequeña expansión */
+}
+
+/* Responsivo para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .product-card-body {
+        padding: 15px;
+    }
+
+    .product-title {
+        font-size: 1.1rem;
+    }
+
+    .product-price {
+        font-size: 1.1rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* --- VIEW LOGIN --- */
+/* Fondo y sombras */
+.body-login, .body-register{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/logo-food-house.jpg');
+    background-repeat: repeat;
+}
+
+
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 11px #EB0104;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #EB0104;
+    font-weight: bold;
+}
+
+/* Botón de inicio de sesión */
+.btn-primary {
+    color: #fff; /* Texto blanco */
+    background-color: #EB0104; /* Fondo transparente */
+    border: 1px solid black; 
+    padding: 5px 15px; /* Espaciado interno del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+
+.btn-primary:hover {
+    background-color: #fff;
+    color: #EB0104;
+    border-color: #EB0104; /* Bordes coloreados al hover */
+    transform: scale(1.05); /* Pequeña expansión */
+}
+
+/* Enlace a register */
+a.text-decoration-none {
+    color: #EB0104;
+    transition: color 0.3s ease;
+}
+
+a.text-decoration-none:hover {
+    color: #000000;
+}
+
+/* Espaciado */
+.form-control {
+    height: 45px;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+}
+
+/* Cambiar el borde de enfoque de los input */
+.form-control:focus {
+    border-color: #EB0104;
+    box-shadow: 0 0 8px #eb0105a1;
+}

@@ -1,0 +1,32 @@
+
+<body class="body-login">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card p-4" style="max-width: 400px; width: 100%;">
+        <div class="card-body">
+            <h3 class="text-center mb-4">Iniciar Sesión</h3>
+            <form action="/api/sessions/login" method="POST">
+                <!-- Campo de usuario -->
+                <div class="mb-3">
+                    <label for="usuario" class="form-label">Nombre de Usuario</label>
+                    <input type="text" class="form-control" id="usuario" name="usuario"
+                        placeholder="Ingresa tu usuario" required>
+                </div>
+                <!-- Campo de contraseña -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password"
+                        placeholder="Ingresa tu contraseña" required>
+                </div>
+                <!-- Botón de Iniciar Sesión -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                </div>
+                <!-- Enlace para registarse -->
+                <div class="text-center mt-3">
+                    <a href="/register" class="text-decoration-none">Registrarse</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
